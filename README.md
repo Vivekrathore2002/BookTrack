@@ -1,3 +1,8 @@
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=JsTPtujW4c0">
+    <img src="https://img.youtube.com/vi/JsTPtujW4c0/0.jpg" alt="YouTube Video" width="800" height="500">
+  </a>
+</div>
 <p align="center">
  
 <!--   <video width="700" height="240" controls>
@@ -8,7 +13,7 @@
 
 
 
-https://github.com/pranjal6314/MERN-PROJECT/assets/77271332/2d8d1623-c7e0-4167-a4f5-5f417db23352
+
 
 
 </video>
