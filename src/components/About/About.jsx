@@ -43,7 +43,7 @@ const About = () => {
                 </VStack>
             </Stack>
             <Stack direction={['column', 'row']} m="8" alignItems={['center']}>
-                <Text fontFamily={'cursive'} textAlign={['center', 'left']} >We are a Video Streaming Platform and We provide some Premium Courses .</Text>
+                <Text fontFamily={'cursive'} textAlign={['center', 'left']} >We are a Video Streaming Platform and We provide some Premium Books .</Text>
                 <Link to="/subscribe">
                     <Button colorScheme="green" variant="ghost" >Check Our Premium Books</Button>
                 </Link>
