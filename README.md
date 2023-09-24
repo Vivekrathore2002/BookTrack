@@ -22,17 +22,17 @@
 
 <!-- PROJECT LOGO -->
 <p align="center">
-  <h1 align="center">LearnUP 🏫</h1>
+  <h1 align="center">BookTrack🏫</h1>
 
   <p align="center">
-    A Learning Platform
+    A Library Platform
     <br />
-    <a href="https://github.com/pranjal6314/MERN-PROJECT/"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/vivekrathore2002/BookTrack/"><strong>Explore the docs »</strong></a>
     <br />
     •
-    <a href="https://github.com/pranjal6314/MERN-PROJECT/issues">Report Bug</a>
+    <a href="https://github.com/vivekrathore2002/BookTrack/issues">Report Bug</a>
     •
-    <a href="https://github.com/pranjal6314/MERN-PROJECT/issues">Request Feature</a>
+    <a href="https://github.com/vivekrathore2002/BookTrack/issues">Request Feature</a>
     •
   </p>
 </p>
@@ -40,62 +40,51 @@
 
 <!-- BADGES -->
 <p align="center">
-  <a href="https://github.com/pranjal6314/MERN-PROJECT/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/pranjal6314/MERN-PROJECT.svg">
+  <a href="https://github.com/vivekrathore2002/BookTrack/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/vivekrathore2002/BookTrack.svg">
   </a>
-  <a href="https://github.com/pranjal6314/MERN-PROJECT/network/members">
-    <img src="https://img.shields.io/github/forks/pranjal6314/MERN-PROJECT">
+  <a href="https://github.com/vivekrathore2002/BookTrack/network/members">
+    <img src="https://img.shields.io/github/forks/vivekrathore2002/BookTrack">
   </a>  
-  <a href="https://github.com/pranjal6314/MERN-PROJECT/stargazers">
-    <img src="https://img.shields.io/github/stars/pranjal6314/MERN-PROJECT">
+  <a href="https://github.com/vivekrathore2002/BookTrack/stargazers">
+    <img src="https://img.shields.io/github/stars/vivekrathore2002/BookTrack">
   </a>
-  <a href="https://github.com/pranjal6314/MERN-PROJECT/issues">
-    <img src="https://img.shields.io/github/issues/pranjal6314/MERN-PROJECT">
+  <a href="https://github.com/vivekrathore2002/BookTrack/issues">
+    <img src="https://img.shields.io/github/issues/vivekrathore2002/BookTrack">
   </a>
 </p>
 
-## 🌟 LearnUP - Empowering Lifelong Learning 🎓
+## 🌟 BookTrack - Empowering Library Learning 🎓
 ## Features 🔍
-- 📚 **Course Repository:** Explore a wide array of courses on various subjects, from academics to vocational skills.
-- 📝 **Course Creation:** Educators can easily create and upload courses using simple code snippets.
-- 🌟 **Student Profiles:** Track your course progress and earned certifications in your personalized profile.
-- 💬 **Discussion Forums:** Engage with instructors and peers, ask questions, and collaborate on projects.
-- 🏅 **Certifications:** Earn certificates upon completing courses to boost your professional profile.
-- 🌐 **Multilingual Support:** OpenCourseHub speaks your language, promoting global participation. 🌍
-## Get Involved 👥
-We welcome contributions from developers, designers, and educators! Here's how you can get involved:
-
-1. 👩‍💻 **Developers:** Contribute to the platform's growth and enhancement. Check out our [Contributor's Guide](CONTRIBUTING.md) for details.
-2. 🎨 **Designers:** Help improve the user experience and design of the website.
-3. 📚 **Educators:** Share your knowledge with the world by creating and uploading your courses.
+- 📚 **Library Repository:** Explore a diverse collection of books across various genres and topics.
+- 📝 **Book Addition:** Authors and publishers can easily add and upload books using simple tools.
+- 📖 **Reader Profiles:** Track your reading progress and create a personalized bookshelf.
+- 💬 **Update Profiles:**  Users can update their profile information, including their name, email, password, and profile picture. This ensures their account is always up-to-date.
+- 🌐 **Multilingual Support:** BookTrack welcomes readers from around the world, supporting multiple languages for a global reading community. 🌍
+- 📝 **Bookshelf Management:** Users can add or remove books from their bookshelf, mark books as read or unread, and write reviews and ratings for books they've read.🌟
 
 ## How to Run Locally 🏃‍♀️
 To run LearnUP locally on your machine, follow these steps:
 1. 📥 Clone the repository:
 ```
-  git clone git@github.com:pranjal6314/MERN-PROJECT.git
+  git clone git@github.com:vivekrathore2002/BookTrack.git
 ```
 3. 📦 Install dependencies:
 ```
-  cd LearnUP
+  cd BookTrack
   npm install
 ```
 3. ⚙️ Build and run the server:
 ```
 npm run start
 ```
-4. 🌐 Open your browser and go to `http://localhost:3000` to access LearnUP.
-
-5 . To run the backend locally:
-    <br />
-    <a href="https://github.com/pranjal6314/LernUp-Backend"><strong>Explore the docs »</strong></a>
-    <br />
+4. 🌐 Open your browser and go to `http://localhost:3000` to access BookTrack.
 
 ## Feedback 💬
 Your feedback is valuable to us! If you encounter any issues or have suggestions for improvement, please [submit an issue](https://github.com/OpenCourseHub/OpenCourseHub/issues).
 
-Let's learn and grow together with LearnUP! 🌱👩‍🎓
+Let's learn and grow together with BookTrack! 🌱👩‍🎓
 
-🔗 Website: https://uplearn.vercel.app/
-📧 Contact: pranjalchoudhary270@gmail.com
-[`LinkedIn`](https://www.linkedin.com/in/pranjal1/)
+🔗 Website: booktrack-by-vivek.vercel.app/
+📧 Contact: rathorevivek9929@gmail.com
+[`LinkedIn`](https://www.linkedin.com/in/vivekrathore0703/)
