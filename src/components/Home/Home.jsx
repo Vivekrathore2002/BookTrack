@@ -36,9 +36,16 @@ const Home = () => {
                     <DiAws />
                 </HStack>
             </Box>
-            <div className="container2">
-                <video controls controlsList='nodownload nofullscreen noremoteplayback  ' disablePictureInPicture disableRemotePlayback src={intro} ></video>
-            </div>
+            <Box className="container2">
+                {/* <AspectRatio ratio={16 / 9}> */}
+                <iframe height={500} width={800}
+                    src={"https://www.youtube.com/embed/JsTPtujW4c0"}
+                    title="YouTube Video"
+                    allowFullScreen
+                    frameBorder="0"
+                ></iframe>
+                {/* </AspectRatio> */}
+            </Box>
         </section>
     )
 }
