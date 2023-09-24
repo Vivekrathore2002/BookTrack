@@ -203,7 +203,7 @@ const Register = () => {
                             id="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
-                            placeholder="Enter Your Password"
+                            placeholder="Enter Your 8 digit Password"
                             type={'password'}
                             focusBorderColor="yellow.500"
                         />
