@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 // import { Container, VStack, Heading, FormLabel, Input, Box, Button, Avatar } from '@chakra-ui/react'
 // import React from 'react'
 // import { useDispatch } from 'react-redux'
@@ -124,6 +125,7 @@ const fileUploadStyle = {
 };
 
 const Register = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -143,6 +145,7 @@ const Register = () => {
         };
     };
 
+
     const submitHandler = e => {
         e.preventDefault();
         const myForm = new FormData();
@@ -153,6 +156,9 @@ const Register = () => {
         myForm.append('file', image);
 
         dispatch(register(myForm));
+        setTimeout(() => {
+            navigate('/login');
+        }, 4000);
     };
 
     return (
