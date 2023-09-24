@@ -121,7 +121,7 @@ const Login = () => {
         console.log(error);
     };
     return <Container height={"95vh"}>
-        {/* <ToastContainer
+        <ToastContainer
             position="bottom-left"
             autoClose={2000}
             hideProgressBar={false}
@@ -132,7 +132,7 @@ const Login = () => {
             draggable
             pauseOnHover
             theme="colored"
-        /> */}
+        />
         <VStack height={"full"} justifyContent="center" spacing={"16"}>
             <Heading children="Welcome To LearnUp" />
             <form onSubmit={submitHandler} style={{ width: "100%" }}>
@@ -186,3 +186,4 @@ const Login = () => {
 }
 
 export default Login
+

@@ -8,11 +8,11 @@ const Founder = () => {
     <Stack direction={['column', 'row']} padding="8" spacing={['4', '16']}>
         <VStack>
             <Avatar boxSize={['40', '48']} />
-            <Text children="co-founder" opacity={0.7} />
+            <Text children="Founder" opacity={0.7} />
         </VStack>
         <VStack>
-            <Heading children="Pranjal Choudhary" />
-            <Text children="Hey! I'm a full-stack developer and You Teacher :)" />
+            <Heading children="Vivek Rathore" />
+            <Text children="Hey! I'm a full-stack developer  :)" />
         </VStack>
     </Stack>
 }
@@ -34,23 +34,23 @@ const About = () => {
             {/* <Founder /> */}
             <Stack direction={['column', 'row']} padding="8" spacing={['4', '16']}>
                 <VStack>
-                    <Avatar src='https://avatars.githubusercontent.com/u/77271332?s=400&u=eb7ededaa6f7648f0b298cddff282495f40e281e&v=4' boxSize={['40', '48']} />
-                    <Text children="co-founder" opacity={0.7} />
+                    <Avatar src='https://github.com/pranjal6314/pranjal6314/assets/77271332/7b8b27f6-1469-4f03-b8e0-ec2b87cd7c56' boxSize={['40', '48']} />
+                    <Text children="Founder" opacity={0.7} />
                 </VStack>
                 <VStack justifyContent={'center'} alignItems={['center', 'flex-start']}>
-                    <Heading children="Pranjal Choudhary" />
-                    <Text textAlign={['center', 'left']} children="Hey! I'm a full-stack developer and You Teacher :)" />
+                    <Heading children="Vivek Rathore" />
+                    <Text textAlign={['center', 'left']} children="Hey! I'm a full-stack developer :)" />
                 </VStack>
             </Stack>
             <Stack direction={['column', 'row']} m="8" alignItems={['center']}>
                 <Text fontFamily={'cursive'} textAlign={['center', 'left']} >We are a Video Streaming Platform and We provide some Premium Courses .</Text>
                 <Link to="/subscribe">
-                    <Button colorScheme="green" variant="ghost" >Check Your Courses</Button>
+                    <Button colorScheme="green" variant="ghost" >Check Our Premium Books</Button>
                 </Link>
             </Stack>
 
             <Box>
-                <video autoPlay muted controls controlsList='nodownload nofullscreen noremoteplayback  ' disablePictureInPicture disableRemotePlayback src={intro} ></video>
+                {/* <video autoPlay muted controls controlsList='nodownload nofullscreen noremoteplayback  ' disablePictureInPicture disableRemotePlayback src={intro} ></video> */}
 
             </Box>
 

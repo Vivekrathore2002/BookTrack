@@ -304,7 +304,7 @@ const Courses = () => {
     }, [category, keyword, dispatch, error, message]);
     return (
         <Container minH={"95vh"} maxW={"container.lg"} paddingY={'8'} >
-            <Heading children="All Courses" m={'8'} />
+            <Heading children="All Books" m={'8'} />
             <Input value={keyword} onChange={e => setKeyword(e.target.value)} placeholder={"Search a Course..."} type='text' focusBorderColor='green.300' />
             <HStack overflowX={"auto"} paddingY={"6"}>
                 {catergories.map((item, index) => (

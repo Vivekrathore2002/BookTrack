@@ -1,11 +1,31 @@
 import React from 'react'
-import { Container, VStack, Heading, Stack, Avatar, Text, Button, Box, HStack, Grid, Flex, Image, Badge } from '@chakra-ui/react'
+import { Container, VStack, Heading, Stack, Avatar, Text, Box, HStack, Grid, Flex, Image, Badge } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
 import { RiCheckboxCircleFill, RiErrorWarningFill } from 'react-icons/ri'
 import intro from "../../assets/videos/intro.mp4"
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addToCart } from '../../Redux/actions/cartSlice'
+import { ToastContainer, toast } from "react-toastify";
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+    addToCart,
+    removeFromCart,
+    cancelFromCart,
+} from '../../Redux/actions/cartSlice';
+
+import {
+    useToast,
+    Button,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+} from '@chakra-ui/react';
 
 const data = [
     {
@@ -152,14 +172,24 @@ const data = [
 
 
 const CoursePage = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const navigate = useNavigate();
+    const [isBillModalOpen, setIsBillModalOpen] = useState(false);
+    const handleBuy = () => {
+        onOpen();
+    };
+    const toast = useToast();
     const url = window.location.pathname; // Replace with the actual URL
     const dispatch = useDispatch();
     const bookId = parseInt(url.split('/').pop(), 10);
+    const current_user = useSelector(state => state.user.isAuthenticated);
     const boxShadowStyle = {
         boxShadow: ' rgba(0, 0, 0, 0.4) 0px 30px 90px',
     };
     const book = data.find(item => item.id == bookId);
-    console.log("book : ", book);
+    const handlePlaceOrderClick = () => {
+        setIsBillModalOpen(true);
+    };
     const [bookNumber, setbookNumber] = useState(0);
     const books = [
         {
@@ -190,64 +220,183 @@ const CoursePage = () => {
 
 
     return (
+        <>
+            {/* <ToastContainer
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            /> */}
+            <Box height="700px">
 
+                <Flex >
+                    {/* Left Side */}
+                    <Box flex="1" p="4" mt={"40"} >
+                        <Box style={boxShadowStyle} width={'350px'} height={420} p={9} ml={40}  >
+                            <Image src={book.imageSrc} boxSize={'200px'} objectFit={'contain'} mx="auto" />
+                            <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                                {book.number_of_copies} Copies
+                            </Text>
+                            <Text textAlign="center" fontSize="md">
+                                Author: {book.author}
+                            </Text>
+                            <Text textAlign="center" fontSize="md">
+                                Publish Date: {book.publish_date}
+                            </Text>
+                            <HStack spacing={2} justify="center" mt={4}>
+                                {book.category.map((cat, index) => (
+                                    <Badge key={index} colorScheme="blue">
+                                        {cat}
+                                    </Badge>
+                                ))}
+                            </HStack>
 
-        <Box height="700px">
-            <Flex >
-                {/* Left Side */}
-                <Box flex="1" p="4" mt={"40"} >
-                    <Box style={boxShadowStyle} width={'350px'} height={420} p={9} ml={40}  >
-                        <Image src={book.imageSrc} boxSize={'200px'} objectFit={'contain'} mx="auto" />
-                        <Text textAlign="center" fontSize="lg" fontWeight="bold">
-                            {book.number_of_copies} Copies
-                        </Text>
-                        <Text textAlign="center" fontSize="md">
-                            Author: {book.author}
-                        </Text>
-                        <Text textAlign="center" fontSize="md">
-                            Publish Date: {book.publish_date}
-                        </Text>
-                        <HStack spacing={2} justify="center" mt={4}>
-                            {book.category.map((cat, index) => (
-                                <Badge key={index} colorScheme="blue">
-                                    {cat}
-                                </Badge>
-                            ))}
-                        </HStack>
-
+                        </Box>
                     </Box>
-                </Box>
 
-                {/* Right Side */}
-                <Box flex="1" p="4" mt={"40"} textAlign="center">
-                    <Heading size="lg">{book.title}</Heading>
-                    {book.is_available && (
-                        <Button colorScheme="yellow" mt={4} mr={5} mb={2} size="lg">
-                            Buy
-                        </Button>
-                    )}
-                    {book.is_available ? (
-                        <Button
-                            colorScheme="blue"
-                            mt={2}
-                            size="lg"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                console.log(book);
-                                dispatch(addToCart(book));
-                                console.log("hello")
-                            }}
-                        >
-                            Add to Cart
-                        </Button>
-                    ) : (
-                        <Text mt={2} color="red">
-                            Not Available
-                        </Text>
-                    )}
-                </Box>
-            </Flex></Box>
+                    {/* Right Side */}
+                    <Box flex="1" p="4" mt={"40"} textAlign="center">
+                        <Heading size="lg">{book.title}</Heading>
+                        {book.is_available && (
+                            <Button colorScheme={current_user ? 'green' : 'red'} mt={4} mr={5} mb={2} size="lg" onClick={() => {
+                                if (current_user) {
+                                    //do here
+                                    handleBuy();
+                                } else {
+                                    // Redirect to /login for non-logged-in users
+                                    navigate('/login');
+                                }
+                            }}>
+                                Buy
+                            </Button>
+                        )}
+                        {book.is_available ? (
+                            <Button
+                                colorScheme="blue"
+                                mt={2}
+                                size="lg"
+                                onClick={(e) => {
+                                    e.preventDefault();
 
+                                    dispatch(addToCart(book));
+
+                                    // Display a success toast
+                                    toast({
+                                        title: "Item added to cart",
+                                        description: "You have successfully added the item to your cart.",
+                                        status: "success",
+                                        duration: 1000, // Optional: Set the duration for how long the toast should be displayed
+                                        isClosable: true, // Optional: Allow users to close the toast manually
+                                    });
+                                }}
+                            >
+                                Add to Cart
+                            </Button>
+
+                        ) : (
+                            <Text mt={2} color="red">
+                                Not Available
+                            </Text>
+                        )}
+                    </Box>
+                </Flex></Box>
+            {/* <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Cart Items and Bill</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <div key={book}>
+                            <h3>{book.title}</h3>
+                            <p>Author: {book.author}</p>
+                            <p>Category: {book.category.join(', ')}</p>
+                            <p>Description: {book.description}</p>
+                            <p>Price: ${book.price.toFixed(2)}</p>
+                            <p>Is Available: {book.is_available ? 'Yes' : 'No'}</p>
+                            <img
+                                src={book.imageSrc}
+                                alt={book.title}
+                                style={{ maxWidth: '100px' }}
+                            />
+                            <hr />
+                        </div>
+                        <p>
+                            Total Price: $
+                            ${book.price.toFixed(2)}
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme="blue" onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal> */}
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Cart Items and Bill</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <div key={book}>
+                            <h3>{book.title}</h3>
+                            <p>Author: {book.author}</p>
+                            <p>Category: {book.category.join(', ')}</p>
+                            <p>Description: {book.description}</p>
+                            <p>Price: ${book.price.toFixed(2)}</p>
+                            <p>Is Available: {book.is_available ? 'Yes' : 'No'}</p>
+                            <img
+                                src={book.imageSrc}
+                                alt={book.title}
+                                style={{ maxWidth: '100px' }}
+                            />
+                            <hr />
+                        </div>
+                        <p>
+                            Total Price: $
+                            ${book.price.toFixed(2)}
+                        </p>
+                    </ModalBody>
+                    <ModalFooter justifyContent="space-between">
+                        <Button colorScheme="blue" onClick={onClose}>
+                            Close
+                        </Button>
+                        <Button colorScheme="green" onClick={() => {
+                            handlePlaceOrderClick();
+                            onClose();
+
+                        }}>
+                            Place Order
+                        </Button>
+                    </ModalFooter>
+
+                </ModalContent>
+            </Modal>
+
+            {/* Bill Modal */}
+            <Modal isOpen={isBillModalOpen} onClose={() => setIsBillModalOpen(false)}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Order Summary</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <p>Total Price: ${book.price.toFixed(2)}</p>
+                        <p>Thanks for your order!</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme="blue" onClick={() => setIsBillModalOpen(false)}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
     )
 }
 

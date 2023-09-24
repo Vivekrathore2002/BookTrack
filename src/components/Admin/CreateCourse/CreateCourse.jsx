@@ -26,7 +26,33 @@ const CreateCourse = () => {
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
     const [imagePrev, setImagePrev] = useState('');
-    const categories = ['Web Development', 'Data Science', 'Machine Learning', 'Artificial Intelligence', 'Cyber Security', 'Cloud Computing', 'Ethical Hacking', 'Programming Languages', 'Mobile Development', 'Game Development', 'Software Testing', 'Digital Marketing', 'Graphic Design', 'Business', 'Office Productivity', 'Personal Development', 'Design', 'Marketing', 'Lifestyle', 'Photography', 'Health & Fitness', 'Music', 'Teaching & Academics']
+    const categories = [
+        'Fiction',
+        'Non-Fiction',
+        'Mystery',
+        'Science',
+        'Fantasy',
+        'Romance',
+        'Thriller',
+        'Horror',
+        'Biography',
+        'Self-Help',
+        'Cooking',
+        'History',
+        'Science',
+        'Travel',
+        'Poetry',
+        'Children',
+        'Young Adult',
+        'Art',
+        'Business',
+        'Technology',
+        'Health',
+        'Religion',
+        'Philosophy',
+        'Education'
+    ];
+
     const dispatch = useDispatch();
     const { loading, error, message } = useSelector(state => state.admin);
     const changeImageHandler = (e) => {
@@ -65,18 +91,18 @@ const CreateCourse = () => {
     return <Grid css={{ cursor: `url(${crusorImg}), default` }} minH={"100vh"} templateColumns={['1fr', '5fr 1fr']} >
         <Container py="16">
             <form onSubmit={submitHandler}>
-                <Heading textAlign={["center", "left"]} textTransform='uppercase' my={'16'} children="Create Course" />
+                <Heading textAlign={["center", "left"]} textTransform='uppercase' my={'16'} children="Add Book" />
                 <VStack m={"auto"} spacing='8'>
                     <Input autoComplete="on" value={title}
                         onChange={(e) => setTitle(e.target.value)} placeholder="Title" type={"text"} focusBorderColor="green.500" />
                     <Input autoComplete="on" value={description}
                         onChange={(e) => setDescription(e.target.value)} placeholder="Description" type={"text"} focusBorderColor="green.500" />
                     <Input autoComplete="on" value={createdBy}
-                        onChange={(e) => setCreatedBy(e.target.value)} placeholder="Created By" type={"text"} focusBorderColor="green.500" />
+                        onChange={(e) => setCreatedBy(e.target.value)} placeholder="Author" type={"text"} focusBorderColor="green.500" />
                     <Select value={category} onChange={(e) => setCategory(e.target.value)} focusBorderColor="green.500" >
                         <option value="">Select Category</option>
                         {categories.map((category, index) => {
-                            return <option key={index} value={category} >{category}</option>
+                            return <option key={index} value={category} > {category}</option>
                         })}
                     </Select>
                     <Input accept='image/*' required type={"file"} focusBorderColor="green.500" css={{

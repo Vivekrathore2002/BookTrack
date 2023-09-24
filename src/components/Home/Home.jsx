@@ -14,7 +14,7 @@ const Home = () => {
                 <Stack direction={['column', 'row']} height='100%' justifyContent={['center', 'space-between']} alignItems="center" spacing={['16', '56']}
                 > {/* stack is div with display flex  direction id column if this is phone other wise row*/}
                     <VStack width={"100%"} alignItems={['center', 'flex-end']}> {/*Vstack is div with display flex direction is column*/}
-                        <Heading children="Learn from pranjal" size={"2xl"} />
+                        <Heading children="BookTrack : Your Library Haven" size={"2xl"} />
                         <Text textAlign={['center', 'left']} children="Find Valueable Content At Reasonable Prize" />
                         <Link to="/courses">
                             <Button size={"lg"} colorScheme={"yellow"}>Explore Now</Button>
@@ -27,7 +27,7 @@ const Home = () => {
             </div>
 
             <Box bg="blackAlpha.800" padding={"8"}>
-                <Heading textAlign={"center"} fontFamily="body" color="yellow.300" children="OUR BRAND" />
+                <Heading textAlign={"center"} fontFamily="body" color="yellow.300" children="Our Publication" />
                 <HStack className='brandsBanner' justifyContent={"space-evenly"} marginTop={"4"}>
                     <CgGoogle />
                     <CgYoutube />

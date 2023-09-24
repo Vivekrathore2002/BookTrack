@@ -74,9 +74,9 @@ const AdminCourses = () => {
                             <Th>Poster</Th>
                             <Th>Title</Th>
                             <Th>Category</Th>
-                            <Th>Creater</Th>
-                            <Th isNumeric>Views</Th>
-                            <Th isNumeric>Lectures</Th>
+                            <Th>Author</Th>
+                            <Th isNumeric>Copy Sold</Th>
+                            <Th isNumeric>Chapter</Th>
                             <Th isNumeric>Action</Th>
                         </Tr>
                     </Thead>
@@ -122,7 +122,7 @@ function Row({ item, courseDetailsHandler, deleteButtonHandler, loading }) {
             <Td isNumeric>{item.numOfVideos}</Td>
             <Td isNumeric>
                 <HStack justifyContent={'flex-end'}>
-                    <Button isLoading={loading} onClick={() => courseDetailsHandler(item._id, item.title)} variant={'outline'} color="green.500">View Lectures</Button>
+                    {/* <Button isLoading={loading} onClick={() => courseDetailsHandler(item._id, item.title)} variant={'outline'} color="green.500">View Lectures</Button> */}
                     <Button isLoading={loading} onClick={() => deleteButtonHandler(item._id)} color="green.600" >
                         <RiDeleteBin7Fill />
                     </Button>

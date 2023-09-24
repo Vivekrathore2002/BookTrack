@@ -103,7 +103,7 @@ const Profile = ({ user }) => {
 
 
         </Stack>
-        <Heading children="Playlist" my='8' size={'md'} />
+        {/* <Heading children="Playlist" my='8' size={'md'} />
         {
             user.playlist.length > 0 && (
                 <Stack direction={['column', 'row']} alignItems={'center'} flexWrap='wrap' p='4' >
@@ -124,7 +124,7 @@ const Profile = ({ user }) => {
                     }
                 </Stack>
             )
-        }
+        } */}
         <ChangePhotoBox loading={loading} isOpen={isOpen} onClose={onClose} changeImageHandler={changeImageHandler} />
 
     </Container>

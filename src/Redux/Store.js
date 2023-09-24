@@ -25,5 +25,6 @@ const Store = configureStore({
   },
 });
 export default Store;
-// export const server = 'https://plum-angry-moose.cyclic.app/api/v1';
-export const server = 'http://localhost:4000/api/v1';
+export const server = 'https://plum-angry-moose.cyclic.app/api/v1';
+//here we go
+// export const server = 'http://localhost:4000/api/v1';

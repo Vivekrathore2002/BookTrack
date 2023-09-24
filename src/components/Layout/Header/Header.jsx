@@ -31,12 +31,12 @@ const Header = ({ isAuthenticated = false, user }) => {
             <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay backdropFilter={"blur(2px)"} />
                 <DrawerContent>
-                    <DrawerHeader borderBottomWidth={"1px"}>Learn Up</DrawerHeader>
+                    <DrawerHeader borderBottomWidth={"1px"}>BookTrack</DrawerHeader>
                     <DrawerBody>
                         <VStack alignItems={"flex-start"} spacing={"5"}>
                             <LinkButton onClose={onClose} url='/' title="Home" />
-                            <LinkButton onClose={onClose} url='/courses' title="All Courses" />
-                            <LinkButton onClose={onClose} url='/request' title="Request a Course" />
+                            <LinkButton onClose={onClose} url='/courses' title="All Books" />
+                            <LinkButton onClose={onClose} url='/request' title="Request a Book" />
                             <LinkButton onClose={onClose} url='/contact' title="Contact Us" />
                             <LinkButton onClose={onClose} url='/about' title="About " />
                             <LinkButton onClose={onClose} url='/cart' title="Cart " />

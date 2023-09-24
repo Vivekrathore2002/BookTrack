@@ -53,7 +53,7 @@ const Request = () => {
 
                     <Button isLoading={loading} my="4" type='submit' colorScheme={"green"}>Send Mail</Button>
                     <Box my="4">
-                        See Available Courses ?{" "}
+                        See Available Books ?{" "}
                         <Link to="/courses">
                             <Button colorScheme={"green.500"} variant="link">
                                 Click

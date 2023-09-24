@@ -15,7 +15,6 @@ export const ColorModeSwitcher = props => {
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
       color="current"
-      zIndex={'overlay'}
       position={'fixed'}
       top="4"
       right={'4'}
